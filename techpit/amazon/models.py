@@ -11,6 +11,12 @@ class Product(models.Model):
     class Meta:
         verbose_name = '商品'
         verbose_name_plural = "商品"
+
+    thumbnail = models.ImageField(
+        verbose_name = 'サムネイル',
+        upload_to = "thumbnails/"
+    )
+
     name = models.CharField(
         verbose_name = '名前',
         max_length=150,
@@ -92,14 +98,14 @@ class User(AbstractBaseUser):
     #     """Send an email to this user."""
     #     send_mail(subject, message, from_email, [self.email], **kwargs)
 
-    # @property
-    # def username(self):
-    #     """username属性のゲッター
+    @property
+    def username(self):
+        """username属性のゲッター
 
-    #     他アプリケーションが、username属性にアクセスした場合に備えて定義
-    #     メールアドレスを返す
-    #     """
-    #     return self.name
+        他アプリケーションが、username属性にアクセスした場合に備えて定義
+        メールアドレスを返す
+        """
+        return self.name
 
 class ShoppingCart(models.Model):
     # class Meta:
