@@ -5,6 +5,8 @@ from django.contrib.auth.models import PermissionsMixin
 from django.core.mail import send_mail
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
+from django.db.models import F, Sum
+
 
 # Create your models here.
 class Product(models.Model):
@@ -48,19 +50,22 @@ class MyUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         """is_staff(管理サイトにログインできるか)と、is_superuer(全ての権限)をFalseに"""
         extra_fields.setdefault('is_staff', False)
+        extra_fields.setdefault('is_superuser', False)
+        
         return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email, password, **extra_fields):
         """スーパーユーザーは、is_staffとis_superuserをTrueに"""
         extra_fields.setdefault('is_staff', True)
-        #extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('is_superuser', True)
 
         if extra_fields.get('is_staff') is not True:
             raise ValueError('Superuser must have is_staff=True.')
-      
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
         return self._create_user(email, password, **extra_fields)
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = 'ユーザ'
         verbose_name_plural = 'ユーザ'
@@ -68,9 +73,6 @@ class User(AbstractBaseUser):
     """カスタムユーザーモデル."""
     email = models.EmailField('メールアドレス', max_length=150, null = False, blank=False, unique = True)
     name = models.CharField('名前', max_length=150, null = False, blank=False)
-    phone_number = models.CharField('電話番号', max_length=150, null = True, blank = True)
-    post_code = models.CharField('郵便番号', max_length=150,null = True, blank = True)
-    address = models.CharField('住所', max_length=150,null = True, blank = True)
     
     is_staff = models.BooleanField(
         '管理者',
@@ -94,9 +96,9 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
-    # def email_user(self, subject, message, from_email=None, **kwargs):
-    #     """Send an email to this user."""
-    #     send_mail(subject, message, from_email, [self.email], **kwargs)
+    def email_user(self, subject, message, from_email=None, **kwargs):
+        """Send an email to this user."""
+        send_mail(subject, message, from_email, [self.email], **kwargs)
 
     @property
     def username(self):
@@ -115,13 +117,21 @@ class ShoppingCart(models.Model):
     user = models.OneToOneField(
         User,
         verbose_name = 'ユーザ',
-        related_name = 'shopping_cart',
+        related_name = 'cart',
         on_delete = models.CASCADE
     )
+
+    @property
+    def item_count(self):
+        return self.cart_items.count
+    @property
+    def total_price(self):
+        return self.cart_items.all().aggregate(total=Sum(F('product__price') * F('amount')))['total']
 
 class ShoppingCartItem(models.Model):
     cart = models.ForeignKey(
         ShoppingCart,
+        related_name = 'cart_items',
         verbose_name = 'ショッピングカート',
         on_delete = models.CASCADE
     )
@@ -130,6 +140,9 @@ class ShoppingCartItem(models.Model):
         verbose_name = '商品',
         on_delete = models.CASCADE
     )
+    amount = models.IntegerField(
+        verbose_name = '数量'
+    )
 
 class Review(models.Model):
     user = models.ForeignKey(
@@ -137,11 +150,24 @@ class Review(models.Model):
         verbose_name = 'ユーザ',
         on_delete = models.CASCADE
     )
-    rating = models.IntegerField(
-        verbose_name = '星'
+    product = models.ForeignKey(
+        Product,
+        related_name = 'reviews',
+        verbose_name = '商品',
+        on_delete = models.CASCADE
     )
-    review = models.TextField(
+    rating = models.IntegerField(
         verbose_name = '評価',
+        default = 0
+    )
+    title = models.CharField(
+        verbose_name = 'タイトル',
+        null = False,
+        blank = False,
+        max_length = 255
+    )
+    comment = models.TextField(
+        verbose_name = 'コメント',
         blank = True,
         null = True
     )
