@@ -131,7 +131,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media_techpit/'
 
 DEFAULT_FROM_EMAIL = 'ishikawasyuusaku@gmail.com'
 DEFAULT_CHARSET = 'utf-8'
