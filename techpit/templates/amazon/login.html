@@ -22,21 +22,22 @@
                 <div class="card bg-light">
                     <div class="card-body mx-auto">
                         <form action="" method="post">
+                            {{ form.non_field_errors }}
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                 </div>
                                 {{ form.username }}
-                                {{ form.email.error }}
                             </div>
+                            {{ form.email.errors }}
         
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-lock"></i></span>
                                 </div>
                                 {{ form.password }}
-                                {{ form.password.error }}
                             </div>
+                            {{ form.password.error }}
                             {% csrf_token %}
                             <div class="form-group">
                                 <button type="submit" name="btn" value="Login" class="btn btn-primary btn-block">Login</button>
