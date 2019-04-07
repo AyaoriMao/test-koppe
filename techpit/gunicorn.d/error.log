@@ -1058,3 +1058,6 @@ ValueError: Unable to configure handler 'file_transaction': [Errno 13] Permissio
 [2019-04-07 09:59:57 +0000] [32552] [DEBUG] POST /techpit/amazon/
 [2019-04-07 09:59:57 +0000] [32552] [DEBUG] GET /techpit/amazon/lp/
 [2019-04-07 10:00:01 +0000] [32552] [DEBUG] GET /techpit/amazon/cart/8
+[2019-04-07 19:05:24 +0900] [32549] [INFO] Handling signal: term
+[2019-04-07 10:05:24 +0000] [32552] [INFO] Worker exiting (pid: 32552)
+[2019-04-07 19:05:24 +0900] [32549] [INFO] Shutting down: Master
