@@ -1,0 +1,673 @@
+[2019-03-16 21:01:29 +0900] [22347] [DEBUG] Current configuration:
+  config: gunicorn.d/conf.py
+  bind: ['127.0.0.1:8002']
+  backlog: 2048
+  workers: 1
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 600
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /var/www/myprojects/pose_check.git/pose_check_project
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: gunicorn.d/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: gunicorn.d/error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: pose_check_proj.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f6eb630ab70>
+  on_reload: <function OnReload.on_reload at 0x7f6eb630ac80>
+  when_ready: <function when_ready at 0x7f6eb630e730>
+  pre_fork: <function pre_fork at 0x7f6eb630e620>
+  post_fork: <function post_fork at 0x7f6eb630e598>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f6eb6324158>
+  worker_int: <function worker_int at 0x7f6eb630e7b8>
+  worker_abort: <function worker_abort at 0x7f6eb630e840>
+  pre_exec: <function pre_exec at 0x7f6eb630e6a8>
+  pre_request: <function PreRequest.pre_request at 0x7f6eb6324598>
+  post_request: <function PostRequest.post_request at 0x7f6eb6324620>
+  child_exit: <function ChildExit.child_exit at 0x7f6eb6324730>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f6eb6324840>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f6eb6324950>
+  on_exit: <function OnExit.on_exit at 0x7f6eb6324a60>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-03-16 21:01:29 +0900] [22347] [INFO] Starting gunicorn 19.9.0
+[2019-03-16 21:01:29 +0900] [22347] [ERROR] Connection in use: ('127.0.0.1', 8002)
+[2019-03-16 21:01:29 +0900] [22347] [DEBUG] connection to ('127.0.0.1', 8002) failed: [Errno 98] Address already in use
+[2019-03-16 21:01:29 +0900] [22347] [ERROR] Retrying in 1 second.
+[2019-03-16 21:01:30 +0900] [22347] [ERROR] Connection in use: ('127.0.0.1', 8002)
+[2019-03-16 21:01:30 +0900] [22347] [DEBUG] connection to ('127.0.0.1', 8002) failed: [Errno 98] Address already in use
+[2019-03-16 21:01:30 +0900] [22347] [ERROR] Retrying in 1 second.
+[2019-03-16 21:01:31 +0900] [22347] [ERROR] Connection in use: ('127.0.0.1', 8002)
+[2019-03-16 21:01:31 +0900] [22347] [DEBUG] connection to ('127.0.0.1', 8002) failed: [Errno 98] Address already in use
+[2019-03-16 21:01:31 +0900] [22347] [ERROR] Retrying in 1 second.
+[2019-03-16 21:01:32 +0900] [22347] [ERROR] Connection in use: ('127.0.0.1', 8002)
+[2019-03-16 21:01:32 +0900] [22347] [DEBUG] connection to ('127.0.0.1', 8002) failed: [Errno 98] Address already in use
+[2019-03-16 21:01:32 +0900] [22347] [ERROR] Retrying in 1 second.
+[2019-03-16 21:01:33 +0900] [22347] [ERROR] Connection in use: ('127.0.0.1', 8002)
+[2019-03-16 21:01:33 +0900] [22347] [DEBUG] connection to ('127.0.0.1', 8002) failed: [Errno 98] Address already in use
+[2019-03-16 21:01:33 +0900] [22347] [ERROR] Retrying in 1 second.
+[2019-03-16 21:01:34 +0900] [22347] [ERROR] Can't connect to ('127.0.0.1', 8002)
+[2019-03-16 21:18:28 +0900] [22715] [DEBUG] Current configuration:
+  config: gunicorn.d/conf.py
+  bind: ['127.0.0.1:8002']
+  backlog: 2048
+  workers: 1
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 600
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /var/www/myprojects/pose_check.git/pose_check_project
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: gunicorn.d/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: gunicorn.d/error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: pose_check_proj.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f3e0133bb70>
+  on_reload: <function OnReload.on_reload at 0x7f3e0133bc80>
+  when_ready: <function when_ready at 0x7f3e0133f730>
+  pre_fork: <function pre_fork at 0x7f3e0133f620>
+  post_fork: <function post_fork at 0x7f3e0133f598>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f3e01355158>
+  worker_int: <function worker_int at 0x7f3e0133f7b8>
+  worker_abort: <function worker_abort at 0x7f3e0133f840>
+  pre_exec: <function pre_exec at 0x7f3e0133f6a8>
+  pre_request: <function PreRequest.pre_request at 0x7f3e01355598>
+  post_request: <function PostRequest.post_request at 0x7f3e01355620>
+  child_exit: <function ChildExit.child_exit at 0x7f3e01355730>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f3e01355840>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f3e01355950>
+  on_exit: <function OnExit.on_exit at 0x7f3e01355a60>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-03-16 21:18:28 +0900] [22715] [INFO] Starting gunicorn 19.9.0
+[2019-03-16 21:18:28 +0900] [22715] [DEBUG] Arbiter booted
+[2019-03-16 21:18:28 +0900] [22715] [INFO] Listening at: http://127.0.0.1:8002 (22715)
+[2019-03-16 21:18:28 +0900] [22715] [INFO] Using worker: sync
+[2019-03-16 21:18:28 +0900] [22715] [INFO] Server is ready. Spawning workers
+[2019-03-16 21:18:28 +0900] [22718] [INFO] Booting worker with pid: 22718
+[2019-03-16 21:18:28 +0900] [22718] [INFO] Worker spawned (pid: 22718)
+[2019-03-16 21:18:28 +0900] [22715] [DEBUG] 1 workers
+[2019-03-16 21:19:03 +0900] [22718] [DEBUG] GET /posture/mysite/
+[2019-03-16 21:19:12 +0900] [22718] [DEBUG] POST /posture/mysite/
+[2019-03-16 21:19:12 +0900] [22718] [DEBUG] GET /posture/mysite/top
+[2019-03-16 21:19:15 +0900] [22718] [DEBUG] GET /posture/mysite/patient_list/
+[2019-03-16 21:19:16 +0900] [22718] [DEBUG] GET /posture/mysite/patient_my_page/1/
+[2019-03-16 21:19:17 +0900] [22718] [DEBUG] GET /posture/mysite/do_pose_check/1
+[2019-03-16 21:19:24 +0900] [22718] [DEBUG] POST /posture/mysite/photo/
+[2019-03-16 21:22:08 +0900] [22718] [DEBUG] POST /posture/mysite/photo/
+[2019-03-16 21:23:44 +0900] [22718] [INFO] worker received INT or QUIT signal
+[2019-03-16 21:23:44 +0900] [22718] [DEBUG] 
+# Thread: MainThread(139904501831488)
+File: "/var/www/myprojects/myenv/bin/gunicorn", line 10, in <module>
+  sys.exit(run())
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 61, in run
+  WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/app/base.py", line 223, in run
+  super(Application, self).run()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/app/base.py", line 72, in run
+  Arbiter(self).run()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/arbiter.py", line 203, in run
+  self.manage_workers()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/arbiter.py", line 545, in manage_workers
+  self.spawn_workers()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/arbiter.py", line 616, in spawn_workers
+  self.spawn_worker()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+  worker.init_process()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/base.py", line 134, in init_process
+  self.run()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/sync.py", line 124, in run
+  self.run_for_one(timeout)
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/sync.py", line 83, in run_for_one
+  self.wait(timeout)
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/sync.py", line 35, in wait
+  ret = select.select(self.wait_fds, [], [], timeout)
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/base.py", line 189, in handle_quit
+  self.cfg.worker_int(self)
+File: "gunicorn.d/conf.py", line 200, in worker_int
+  for filename, lineno, name, line in traceback.extract_stack(stack):
+[2019-03-16 21:23:44 +0900] [22715] [INFO] Handling signal: int
+[2019-03-16 21:23:44 +0900] [22718] [INFO] worker received INT or QUIT signal
+[2019-03-16 21:23:44 +0900] [22718] [DEBUG] 
+# Thread: MainThread(139904501831488)
+File: "/var/www/myprojects/myenv/bin/gunicorn", line 10, in <module>
+  sys.exit(run())
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 61, in run
+  WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/app/base.py", line 223, in run
+  super(Application, self).run()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/app/base.py", line 72, in run
+  Arbiter(self).run()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/arbiter.py", line 203, in run
+  self.manage_workers()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/arbiter.py", line 545, in manage_workers
+  self.spawn_workers()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/arbiter.py", line 616, in spawn_workers
+  self.spawn_worker()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+  worker.init_process()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/base.py", line 134, in init_process
+  self.run()
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/sync.py", line 124, in run
+  self.run_for_one(timeout)
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/sync.py", line 83, in run_for_one
+  self.wait(timeout)
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/sync.py", line 35, in wait
+  ret = select.select(self.wait_fds, [], [], timeout)
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/base.py", line 190, in handle_quit
+  time.sleep(0.1)
+File: "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/base.py", line 189, in handle_quit
+  self.cfg.worker_int(self)
+File: "gunicorn.d/conf.py", line 200, in worker_int
+  for filename, lineno, name, line in traceback.extract_stack(stack):
+[2019-03-16 21:23:44 +0900] [22718] [INFO] Worker exiting (pid: 22718)
+[2019-03-16 21:23:45 +0900] [22715] [INFO] Shutting down: Master
+[2019-03-16 21:26:17 +0900] [22800] [DEBUG] Current configuration:
+  config: gunicorn.d/conf.py
+  bind: ['127.0.0.1:8002']
+  backlog: 2048
+  workers: 1
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 600
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /var/www/myprojects/pose_check.git/pose_check_project
+  daemon: True
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1001
+  group: 1001
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: gunicorn.d/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: gunicorn.d/error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: pose_check_proj.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fdebe0f5b70>
+  on_reload: <function OnReload.on_reload at 0x7fdebe0f5c80>
+  when_ready: <function when_ready at 0x7fdebe0f9730>
+  pre_fork: <function pre_fork at 0x7fdebe0f9620>
+  post_fork: <function post_fork at 0x7fdebe0f9598>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fdebe10f158>
+  worker_int: <function worker_int at 0x7fdebe0f97b8>
+  worker_abort: <function worker_abort at 0x7fdebe0f9840>
+  pre_exec: <function pre_exec at 0x7fdebe0f96a8>
+  pre_request: <function PreRequest.pre_request at 0x7fdebe10f598>
+  post_request: <function PostRequest.post_request at 0x7fdebe10f620>
+  child_exit: <function ChildExit.child_exit at 0x7fdebe10f730>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fdebe10f840>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fdebe10f950>
+  on_exit: <function OnExit.on_exit at 0x7fdebe10fa60>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-03-16 21:26:17 +0900] [22800] [INFO] Starting gunicorn 19.9.0
+[2019-03-16 21:26:17 +0900] [22800] [DEBUG] Arbiter booted
+[2019-03-16 21:26:17 +0900] [22800] [INFO] Listening at: http://127.0.0.1:8002 (22800)
+[2019-03-16 21:26:17 +0900] [22800] [INFO] Using worker: sync
+[2019-03-16 21:26:17 +0900] [22800] [INFO] Server is ready. Spawning workers
+[2019-03-16 21:26:17 +0900] [22803] [INFO] Booting worker with pid: 22803
+[2019-03-16 21:26:17 +0900] [22803] [INFO] Worker spawned (pid: 22803)
+[2019-03-16 21:26:17 +0900] [22800] [DEBUG] 1 workers
+[2019-03-16 21:26:18 +0900] [22803] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/lib64/python3.6/logging/config.py", line 558, in configure
+    handler = self.configure_handler(handlers[name])
+  File "/usr/lib64/python3.6/logging/config.py", line 731, in configure_handler
+    result = factory(**kwargs)
+  File "/usr/lib64/python3.6/logging/handlers.py", line 150, in __init__
+    BaseRotatingHandler.__init__(self, filename, mode, encoding, delay)
+  File "/usr/lib64/python3.6/logging/handlers.py", line 57, in __init__
+    logging.FileHandler.__init__(self, filename, mode, encoding, delay)
+  File "/usr/lib64/python3.6/logging/__init__.py", line 1031, in __init__
+    StreamHandler.__init__(self, self._open())
+  File "/usr/lib64/python3.6/logging/__init__.py", line 1060, in _open
+    return open(self.baseFilename, self.mode, encoding=self.encoding)
+PermissionError: [Errno 13] Permission denied: '/var/www/myprojects/pose_check.git/pose_check_project/logs/transaction.log'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 52, in load
+    return self.load_wsgiapp()
+  File "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 41, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/var/www/myprojects/myenv/lib64/python3.6/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/var/www/myprojects/pose_check.git/pose_check_project/pose_check_proj/wsgi.py", line 17, in <module>
+    application = get_wsgi_application()
+  File "/var/www/myprojects/myenv/lib64/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/var/www/myprojects/myenv/lib64/python3.6/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/var/www/myprojects/myenv/lib64/python3.6/site-packages/django/utils/log.py", line 76, in configure_logging
+    logging_config_func(logging_settings)
+  File "/usr/lib64/python3.6/logging/config.py", line 795, in dictConfig
+    dictConfigClass(config).configure()
+  File "/usr/lib64/python3.6/logging/config.py", line 566, in configure
+    '%r: %s' % (name, e))
+ValueError: Unable to configure handler 'file_transaction': [Errno 13] Permission denied: '/var/www/myprojects/pose_check.git/pose_check_project/logs/transaction.log'
+[2019-03-16 21:26:18 +0900] [22803] [INFO] Worker exiting (pid: 22803)
+[2019-03-16 21:26:18 +0900] [22800] [INFO] Shutting down: Master
+[2019-03-16 21:26:18 +0900] [22800] [INFO] Reason: Worker failed to boot.
+[2019-03-16 21:29:15 +0900] [22849] [DEBUG] Current configuration:
+  config: gunicorn.d/conf.py
+  bind: ['127.0.0.1:8002']
+  backlog: 2048
+  workers: 1
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 600
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /var/www/myprojects/pose_check.git/pose_check_project
+  daemon: True
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1001
+  group: 1001
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: gunicorn.d/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: gunicorn.d/error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: pose_check_proj.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f2504494b70>
+  on_reload: <function OnReload.on_reload at 0x7f2504494c80>
+  when_ready: <function when_ready at 0x7f2504498730>
+  pre_fork: <function pre_fork at 0x7f2504498620>
+  post_fork: <function post_fork at 0x7f2504498598>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f25044ae158>
+  worker_int: <function worker_int at 0x7f25044987b8>
+  worker_abort: <function worker_abort at 0x7f2504498840>
+  pre_exec: <function pre_exec at 0x7f25044986a8>
+  pre_request: <function PreRequest.pre_request at 0x7f25044ae598>
+  post_request: <function PostRequest.post_request at 0x7f25044ae620>
+  child_exit: <function ChildExit.child_exit at 0x7f25044ae730>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f25044ae840>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f25044ae950>
+  on_exit: <function OnExit.on_exit at 0x7f25044aea60>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-03-16 21:29:15 +0900] [22849] [INFO] Starting gunicorn 19.9.0
+[2019-03-16 21:29:15 +0900] [22849] [DEBUG] Arbiter booted
+[2019-03-16 21:29:15 +0900] [22849] [INFO] Listening at: http://127.0.0.1:8002 (22849)
+[2019-03-16 21:29:15 +0900] [22849] [INFO] Using worker: sync
+[2019-03-16 21:29:15 +0900] [22849] [INFO] Server is ready. Spawning workers
+[2019-03-16 21:29:15 +0900] [22852] [INFO] Booting worker with pid: 22852
+[2019-03-16 21:29:15 +0900] [22852] [INFO] Worker spawned (pid: 22852)
+[2019-03-16 21:29:15 +0900] [22849] [DEBUG] 1 workers
+[2019-03-16 21:29:38 +0900] [22852] [DEBUG] GET /posture/mysite/
+[2019-03-16 21:30:13 +0900] [22852] [DEBUG] POST /posture/mysite/
+[2019-03-16 21:30:14 +0900] [22852] [DEBUG] GET /posture/mysite/top
+[2019-03-16 21:30:16 +0900] [22852] [DEBUG] GET /posture/mysite/patient_list/
+[2019-03-16 21:30:18 +0900] [22852] [DEBUG] GET /posture/mysite/patient_my_page/1/
+[2019-03-16 21:30:19 +0900] [22852] [DEBUG] GET /posture/mysite/do_pose_check/1
+[2019-03-16 21:30:25 +0900] [22852] [DEBUG] POST /posture/mysite/photo/
+[2019-03-16 21:38:36 +0900] [22852] [DEBUG] GET /posture/do_pose_check/1
+[2019-03-16 21:38:40 +0900] [22852] [DEBUG] GET /posture/
+[2019-03-16 21:38:43 +0900] [22852] [DEBUG] GET /posture
+[2019-03-16 21:39:16 +0900] [22852] [DEBUG] GET /posture
+[2019-03-16 21:40:09 +0900] [22852] [INFO] Worker exiting (pid: 22852)
+[2019-03-16 21:40:09 +0900] [22849] [INFO] Handling signal: term
+[2019-03-16 21:40:09 +0900] [22849] [INFO] Shutting down: Master
+[2019-03-16 21:41:00 +0900] [23156] [DEBUG] Current configuration:
+  config: gunicorn.d/conf.py
+  bind: ['127.0.0.1:8002']
+  backlog: 2048
+  workers: 1
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 600
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /var/www/myprojects/pose_check.git/pose_check_project
+  daemon: True
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1001
+  group: 1001
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: gunicorn.d/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: gunicorn.d/error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: pose_check_proj.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fd93a0bdb70>
+  on_reload: <function OnReload.on_reload at 0x7fd93a0bdc80>
+  when_ready: <function when_ready at 0x7fd93a0c1730>
+  pre_fork: <function pre_fork at 0x7fd93a0c1620>
+  post_fork: <function post_fork at 0x7fd93a0c1598>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fd93a0d7158>
+  worker_int: <function worker_int at 0x7fd93a0c17b8>
+  worker_abort: <function worker_abort at 0x7fd93a0c1840>
+  pre_exec: <function pre_exec at 0x7fd93a0c16a8>
+  pre_request: <function PreRequest.pre_request at 0x7fd93a0d7598>
+  post_request: <function PostRequest.post_request at 0x7fd93a0d7620>
+  child_exit: <function ChildExit.child_exit at 0x7fd93a0d7730>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fd93a0d7840>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fd93a0d7950>
+  on_exit: <function OnExit.on_exit at 0x7fd93a0d7a60>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-03-16 21:41:00 +0900] [23156] [INFO] Starting gunicorn 19.9.0
+[2019-03-16 21:41:00 +0900] [23156] [DEBUG] Arbiter booted
+[2019-03-16 21:41:00 +0900] [23156] [INFO] Listening at: http://127.0.0.1:8002 (23156)
+[2019-03-16 21:41:00 +0900] [23156] [INFO] Using worker: sync
+[2019-03-16 21:41:00 +0900] [23156] [INFO] Server is ready. Spawning workers
+[2019-03-16 21:41:00 +0900] [23159] [INFO] Booting worker with pid: 23159
+[2019-03-16 21:41:00 +0900] [23159] [INFO] Worker spawned (pid: 23159)
+[2019-03-16 21:41:00 +0900] [23156] [DEBUG] 1 workers
+[2019-03-16 21:41:04 +0900] [23159] [DEBUG] GET /posture
+[2019-03-16 21:41:12 +0900] [23159] [DEBUG] GET /posture/
+[2019-03-17 04:50:00 +0900] [23159] [DEBUG] GET /posture
+[2019-03-17 04:50:00 +0900] [23159] [DEBUG] GET /posture/
+[2019-03-17 04:50:11 +0900] [23159] [DEBUG] GET /posture/admin
+[2019-03-17 04:50:11 +0900] [23159] [DEBUG] GET /posture/admin/
+[2019-03-17 04:50:11 +0900] [23159] [DEBUG] GET /posture/admin/login/
+[2019-03-17 04:51:16 +0900] [23159] [DEBUG] GET /posture/sign_up/
+[2019-03-17 04:52:28 +0900] [23159] [DEBUG] POST /posture/sign_up/
+[2019-03-17 04:54:07 +0900] [23159] [DEBUG] POST /posture/sign_up/
+[2019-03-17 04:54:42 +0900] [23159] [DEBUG] POST /posture/sign_up/
+[2019-03-17 04:56:32 +0900] [23159] [DEBUG] GET /posture/login/
+[2019-03-17 04:56:53 +0900] [23159] [DEBUG] POST /posture/login/
+[2019-03-17 04:57:06 +0900] [23159] [DEBUG] POST /posture/login/
+[2019-03-17 04:57:40 +0900] [23159] [DEBUG] POST /posture/admin/login/
+[2019-03-17 04:58:00 +0900] [23159] [DEBUG] GET /posture/
+[2019-03-17 04:58:03 +0900] [23159] [DEBUG] GET /posture/sign_up/
+[2019-03-17 04:59:27 +0900] [23159] [DEBUG] POST /posture/sign_up/
+[2019-03-17 04:59:44 +0900] [23159] [DEBUG] POST /posture/sign_up/
+[2019-03-17 08:59:14 +0900] [23159] [DEBUG] GET /posture/
+[2019-03-17 08:59:17 +0900] [23159] [DEBUG] GET /posture/sign_up/
+[2019-03-17 08:59:58 +0900] [23159] [DEBUG] POST /posture/sign_up/
+[2019-03-17 09:00:35 +0900] [23159] [DEBUG] POST /posture/sign_up/
+[2019-03-17 09:00:53 +0900] [23159] [DEBUG] POST /posture/sign_up/
+[2019-03-17 09:00:54 +0900] [23159] [DEBUG] GET /posture/sign_up/mail_sent
+[2019-03-17 09:01:13 +0900] [23159] [DEBUG] GET /posture/sign_up/complete/NQ:1h5JEU:uqaAGnItCOARaPdZPUZ4JTtpjgM/
+[2019-03-17 09:02:33 +0900] [23159] [DEBUG] GET /posture/sign_up/mail_sent
+[2019-03-17 09:02:40 +0900] [23159] [DEBUG] GET /posture/
+[2019-03-17 09:02:43 +0900] [23159] [DEBUG] GET /posture/password_reset/
+[2019-03-17 09:02:46 +0900] [23159] [DEBUG] POST /posture/password_reset/
+[2019-03-17 09:02:47 +0900] [23159] [DEBUG] GET /posture/password_reset/mail_sent/
+[2019-03-17 09:02:59 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/54p-e884a7e05d26e8df350c/
+[2019-03-17 09:02:59 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/set-password/
+[2019-03-17 09:03:26 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/54p-e884a7e05d26e8df350c/
+[2019-03-17 09:03:26 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/set-password/
+[2019-03-17 09:08:04 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/set-password/
+[2019-03-17 09:08:40 +0900] [23159] [DEBUG] GET /posture/
+[2019-03-17 09:08:42 +0900] [23159] [DEBUG] GET /posture/password_reset/
+[2019-03-17 09:08:46 +0900] [23159] [DEBUG] POST /posture/password_reset/
+[2019-03-17 09:08:46 +0900] [23159] [DEBUG] GET /posture/password_reset/mail_sent/
+[2019-03-17 09:08:54 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/54p-e884a7e05d26e8df350c/
+[2019-03-17 09:08:54 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/set-password/
+[2019-03-17 09:09:21 +0900] [23159] [DEBUG] GET /posture/
+[2019-03-17 09:09:24 +0900] [23159] [DEBUG] GET /posture/password_reset/
+[2019-03-17 09:09:34 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/54p-e884a7e05d26e8df350c/
+[2019-03-17 09:09:34 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/set-password/
+[2019-03-17 09:10:41 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/set-password/
+[2019-03-17 09:11:45 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/set-password/
+[2019-03-17 09:13:07 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/set-password/
+[2019-03-17 09:13:26 +0900] [23159] [DEBUG] GET /posture/password_reset/confirm/NQ/set-password/
+[2019-03-17 09:13:34 +0900] [23159] [DEBUG] POST /posture/password_reset/confirm/NQ/set-password/
+[2019-03-17 09:13:35 +0900] [23159] [DEBUG] GET /posture/password_reset/done/
+[2019-03-17 09:13:39 +0900] [23159] [DEBUG] GET /posture/login/
+[2019-03-17 09:13:43 +0900] [23159] [DEBUG] POST /posture/login/
+[2019-03-17 09:13:43 +0900] [23159] [DEBUG] GET /posture/top
+[2019-03-17 09:13:45 +0900] [23159] [DEBUG] GET /posture/kanri/
+[2019-03-17 09:13:58 +0900] [23159] [DEBUG] GET /posture/register_patient/
+[2019-03-17 09:13:59 +0900] [23159] [DEBUG] GET /posture/patient_list/
+[2019-03-17 09:14:01 +0900] [23159] [DEBUG] GET /posture/patient_my_page/1/
+[2019-03-17 09:15:23 +0900] [23159] [DEBUG] GET /posture/patient_my_page/1/
+[2019-03-17 09:19:49 +0900] [23159] [DEBUG] GET /posture/patient_my_page/1/
+[2019-03-17 09:19:51 +0900] [23159] [DEBUG] GET /posture/kanri/
+[2019-03-17 09:19:52 +0900] [23159] [DEBUG] GET /posture/kanri/
+[2019-03-17 09:19:54 +0900] [23159] [DEBUG] GET /posture/kanri/
+[2019-03-17 09:19:56 +0900] [23159] [DEBUG] GET /posture/top
+[2019-03-17 09:19:56 +0900] [23159] [DEBUG] GET /posture/kanri/
+[2019-03-17 09:19:57 +0900] [23159] [DEBUG] GET /posture/patient_list/
+[2019-03-17 09:19:58 +0900] [23159] [DEBUG] GET /posture/update_clinic/1/
+[2019-03-17 09:19:59 +0900] [23159] [DEBUG] GET /posture/patient_list/
+[2019-03-17 09:20:01 +0900] [23159] [DEBUG] GET /posture/patient_my_page/1/
+[2019-03-17 09:20:02 +0900] [23159] [DEBUG] GET /posture/do_pose_check/1
+[2019-03-17 09:20:10 +0900] [23159] [DEBUG] POST /posture/photo/
+[2019-03-17 09:21:40 +0900] [23159] [DEBUG] POST /posture/photo/
+[2019-03-17 09:24:41 +0900] [23159] [DEBUG] POST /posture/comment/
+[2019-03-17 09:24:41 +0900] [23159] [DEBUG] GET /posture/kanri/
+[2019-03-17 09:25:16 +0900] [23159] [DEBUG] GET /posture/kanri/
