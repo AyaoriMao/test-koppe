@@ -960,3 +960,101 @@ ValueError: Unable to configure handler 'file_transaction': [Errno 13] Permissio
 [2019-04-07 09:55:28 +0000] [32455] [DEBUG] POST /techpit/amazon/
 [2019-04-07 09:55:30 +0000] [32455] [DEBUG] POST /techpit/amazon/
 [2019-04-07 09:55:33 +0000] [32455] [DEBUG] POST /techpit/amazon/
+[2019-04-07 18:58:42 +0900] [32452] [INFO] Handling signal: term
+[2019-04-07 09:58:42 +0000] [32455] [INFO] Worker exiting (pid: 32455)
+[2019-04-07 18:58:42 +0900] [32452] [INFO] Shutting down: Master
+[2019-04-07 18:59:06 +0900] [32549] [DEBUG] Current configuration:
+  config: gunicorn.d/conf.py
+  bind: ['127.0.0.1:8003']
+  backlog: 2048
+  workers: 1
+  worker_class: sync
+  threads: 1
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 600
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /var/www/python_projects/amazon.git/techpit
+  daemon: True
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 0
+  group: 0
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: gunicorn.d/access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: gunicorn.d/error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: techpit.wsgi:application
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f98522aa400>
+  on_reload: <function OnReload.on_reload at 0x7f98522aa510>
+  when_ready: <function when_ready at 0x7f98522c4f28>
+  pre_fork: <function pre_fork at 0x7f98522c4e18>
+  post_fork: <function post_fork at 0x7f98522c4d90>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f98522aa950>
+  worker_int: <function worker_int at 0x7f98522da048>
+  worker_abort: <function worker_abort at 0x7f98522da0d0>
+  pre_exec: <function pre_exec at 0x7f98522c4ea0>
+  pre_request: <function PreRequest.pre_request at 0x7f98522aad90>
+  post_request: <function PostRequest.post_request at 0x7f98522aae18>
+  child_exit: <function ChildExit.child_exit at 0x7f98522aaf28>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f98522c40d0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f98522c41e0>
+  on_exit: <function OnExit.on_exit at 0x7f98522c42f0>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: TLSv1
+  raw_paste_global_conf: []
+[2019-04-07 18:59:06 +0900] [32549] [INFO] Starting gunicorn 19.9.0
+[2019-04-07 18:59:06 +0900] [32549] [DEBUG] Arbiter booted
+[2019-04-07 18:59:06 +0900] [32549] [INFO] Listening at: http://127.0.0.1:8003 (32549)
+[2019-04-07 18:59:06 +0900] [32549] [INFO] Using worker: sync
+[2019-04-07 18:59:06 +0900] [32549] [INFO] Server is ready. Spawning workers
+[2019-04-07 18:59:06 +0900] [32552] [INFO] Booting worker with pid: 32552
+[2019-04-07 18:59:06 +0900] [32552] [INFO] Worker spawned (pid: 32552)
+[2019-04-07 18:59:06 +0900] [32549] [DEBUG] 1 workers
+[2019-04-07 09:59:17 +0000] [32552] [DEBUG] POST /techpit/amazon/
+[2019-04-07 09:59:48 +0000] [32552] [DEBUG] POST /techpit/amazon/
+[2019-04-07 09:59:57 +0000] [32552] [DEBUG] POST /techpit/amazon/
+[2019-04-07 09:59:57 +0000] [32552] [DEBUG] GET /techpit/amazon/lp/
+[2019-04-07 10:00:01 +0000] [32552] [DEBUG] GET /techpit/amazon/cart/8
