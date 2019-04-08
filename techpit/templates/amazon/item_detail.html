@@ -39,6 +39,37 @@
             <p class="lead">
                 <h2>{{ object.name }}</h2>
                 <span>¥{{ object.price }}</span>
+                <span>
+                    <p>      
+                        {% if object.average_rating > 0 %}
+                        <span>★</i></span>
+                        {% else %}
+                        <span>☆</span>
+                        {% endif %}
+                        {% if object.average_rating > 1 %}
+                        <span>★</i></span>
+                        {% else %}
+                        <span>☆</span>
+                        {% endif %}
+                        {% if object.average_rating > 2 %}
+                        <span>★</i></span>
+                        {% else %}
+                        <span>☆</span>
+                        {% endif %}
+                        {% if object.average_rating > 3 %}
+                        <span>★</i></span>
+                        {% else %}
+                        <span>☆</span>
+                        {% endif %}
+                        {% if object.average_rating > 4 %}
+                        <span>★</i></span>
+                        {% else %}
+                        <span>☆</span>
+                        {% endif %}
+    
+                    </p>
+                </span>
+
             </p>
 
             <p class="lead font-weight-bold">商品説明</p>
@@ -67,7 +98,9 @@
         <!--Grid row-->
 
         <hr>
+        {% if user.authenticated %}
         <!-- review form -->
+        
         <form action="" method="POST">
             {{ form.non_field_errors }}
             {% for field in form %}
@@ -85,7 +118,7 @@
         </form> <!-- review form -->
 
         <hr>
-
+        {% endif %}
         <!-- reviews -->
         {% if object.reviews %}
         <div class="container">
@@ -96,13 +129,17 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-2">
-                            <div class="icon-wrap icon-lg bg2 round text-secondary"><i class="fa fa-user"></i></div>
-                            <div>{{ review.user.name }}</div>
+                            <div class="icon-wrap icon-md bg2 round text-secondary text-center">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="pull-left">
+                                <small>{{ review.user.name }}</small>
+                            </div>
+                            
                         </div>
                         <div class="col-md-10">
                             <strong>{{ review.title }}</strong>
                             <p class="float-right">
-                                
                                 {% if review.rating > 0 %}
                                 <span>★</i></span>
                                 {% else %}
