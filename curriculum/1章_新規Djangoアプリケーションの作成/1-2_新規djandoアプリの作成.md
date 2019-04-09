@@ -10,7 +10,8 @@
 (myenv)$ ls
 amazon db.sqlite3 manage.py techpit
 ```
-コマンド完了後にフォルダ内をみてみると、amazonフォルダとdb.sqlite3ファイルが新しくできていると思います。amazonフォルダの中身は以下のようになっております。
+コマンド完了後にフォルダ内をみてみると、amazonフォルダとdb.sqlite3ファイルが新しくできていると思います。amazonフォルダの中身は以下のようになっております。db.sqlite3はデフォルトでdjangoが利用するデータベースファイルになります。
+
 ```
 amazon/
 　├ __init__.py
