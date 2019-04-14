@@ -9,12 +9,12 @@
 mac pcにはあらかじめpython2.xがインストールされておりますが、
 より新しいpython3.x系を利用します。
 
-pythonダウンロードページへ移動します。
+python[ダウンロードページ](https://www.python.org/downloads/)へ移動します。
 [![Image from Gyazo](https://i.gyazo.com/6d1e77d675407a374c823356dd698de7.png)](https://gyazo.com/6d1e77d675407a374c823356dd698de7)
 
 
 
-最新のバージョンをダウンロードしたら、ダウンロードしたインストーラを開きウィザードに従ってインストールを行います。。
+最新のバージョンをダウンロードしたら、ダウンロードしたインストーラを開きウィザードに従ってインストールを行います。
 [![Image from Gyazo](https://i.gyazo.com/7e876ddee7c93aee9462d20ecaa2a7b2.png)](https://gyazo.com/7e876ddee7c93aee9462d20ecaa2a7b2)
 
 
@@ -42,7 +42,7 @@ $ python3.7 -m venv myenv
 $ ls
 myenv
 ```
-どうフォルダにmyenvというフォルダが作成されております。このmyenvフォルダこそが仮想環境であり、この中に今回指定したバージョン(python3.7)、これからインストールするパッケージが保管されます。
+同フォルダにmyenvというフォルダが作成されております。このmyenvフォルダこそが仮想環境であり、この中に今回指定したバージョン(python3.7)、これからインストールするパッケージが保管されます。
 ただ、今のままでは仮想環境を作成したのみですので、仮想環境に”入る”ことが必要になります。
 仮想環境に入るには同じフォルダへ以下のコマンドを打ちましょう。
 ```
@@ -85,10 +85,10 @@ $ Python 2.7.15
 ではVisual Studio Codeのインストール方法を説明していきます。
 
 まず以下のリンクからVisual Studio Codeをダウンロードしてください。
+サイトにアクセスすると勝手にダウンロードが始まります。
 
-[Visual Studio Codeのダウンロードページ](https://code.visualstudio.com/)
+[Visual Studio Codeのダウンロードページ](https://code.visualstudio.com/docs/setup/mac)
 
-![image](https://i.gyazo.com/ca6d0a41c2d143a8b5053503363909e9.png)
 
 ダウンロードが完了したらダウンロードしたファイルを展開してください。そのあと展開したファイルをアプリケーションフォルダに移動してください。移動させる方法色々ありますが、下記の動画ではFinderを2つ開いてドラック&ドロップで移動させています。(Finderを2つ開くには、Finderを開いた状態で`command + N`を押すことで2つ開くことができます。)
 
@@ -98,77 +98,15 @@ $ Python 2.7.15
 
 ![image](https://i.gyazo.com/3a9c885cbe0dbf2758f7162c859f569d.png)
 
-## Visual Studio Codeをカスタマイズ
-デフォルトでもプログラミングはできますが、より開発しやすくするためにカスタマイズをしていきます。
+## 拡張機能をインストール
+開発を進めるに当たり、あると便利な拡張機能をインストールしましょう。
 
-**※)カスタマイズに関してはお好みで設定されて大丈夫です。**
+ここでは最低限としてPythonと日本語化パックをインストールしましょう。(それぞれ"Python", "Japanese"と検索すると一番上に出てくると思います。)
+** Pythonについては元からインストールされている可能性が高いですので、その場合は飛ばして大丈夫です。
+[![Image from Gyazo](https://i.gyazo.com/fccfb6311a4c5ffd7773f78a7db0a518.png)](https://gyazo.com/fccfb6311a4c5ffd7773f78a7db0a518)
 
-まず、`Command + ,`を押して設定画面を開きます。
+[![Image from Gyazo](https://i.gyazo.com/12f5f2f1d094795905ebfe6a51c9ce25.png)](https://gyazo.com/12f5f2f1d094795905ebfe6a51c9ce25)
 
-![image](https://i.gyazo.com/3f73f9773290bcd25ded645ff3f35427.png)
-
-開いたら、下にスクロールをしていって、`Edit in settings.json`をクリックしてください。クリックしたらsettings.jsonファイルが展開されます。
-
-![image](https://i.gyazo.com/61adc05697a618deb2d9d5f737dee53f.gif)
-
-次に`settings.json`ファイルに以下のコードをコピーして、すでに書いてあるコードに上書きして保存してください。`command + S`で保存できます。（下記に示しているコードは、特に理解する必要はありません。）
-
-```json
-{
-    // 差分を横に並べて表示ではなく行内に表示する
-    "diffEditor.renderSideBySide": false,
-    // ファイルを保存時に自動フォーマットする
-    "editor.formatOnSave": true,
-    // 現在の行を強調表示する
-    "editor.renderLineHighlight": "all",
-    // 空白文字を表示する。
-    "editor.renderWhitespace": "all",
-    // スペース2個インデント
-    "editor.tabSize": 2,
-    // ウィンドウ幅右端で折り返す
-    "editor.wordWrap": "on",
-    // ファイル保存時に最新の行を末尾に挿入する
-    "files.insertFinalNewline": true,
-    // アイコンテーマの指定
-    "workbench.iconTheme": "vscode-icons"
-}
-```
-
-上記のコードを追加したら下記の画像のように空白文字に「・・・・」と表示されていればカスタマイズがうまくできています。
-
-![image](https://i.gyazo.com/02b74ac567ed7249b426a9d8e92bf685.png)
-
-今回カスタマイズした内容はVSCodeを使っていくなかでお好みに変更されても構いません。
-
-
-## 拡張機能の追加
-より開発しやすくするために拡張機能を追加していきます。
-追加する拡張機能は以下の3つです。
-
-```
-● Ruby
-VSCodeに対するRuby言語とデバッグサポートを提供。
-● Japanese Language Pack for Visual Studio Code
-VSCodeを日本語に対応したUIを提供。
-● vscode-icons
-ファイルやフォルダにアイコンを追加。
-```
-
-では拡張機能を追加していきます。下記の画像のように左側にあるアイコンをクリックしてください。
-
-![image](https://i.gyazo.com/b632f955a063c851c4b76315c2e13e4c.png)
-
-すると拡張機能のMARKETPLACEが表示されるので、検索バーからインストールしたい拡張機能を検索しましょう。
-
-![image](https://i.gyazo.com/182e29f848be2617b979606d4ae0dcd5.png)
-
-(まずは試しにRubyと検索してみましょう。)
-
-すると下記の画像のようにRubyの拡張機能が表示されるのでインストールしてください。
-
-![image](https://i.gyazo.com/53bc02340dd67abd8c2b1a2cf8c63aa0.png)
-
-これでRubyの拡張機能がインストールできました。同じやり方で他の拡張機能もインストールしてみましょう。
 
 全てインストールできたらVSCodeを**再起動**してください。再起動することで拡張機能が使えるようになります。
 

@@ -1,0 +1,52 @@
+[
+    {
+      "model": "amazon.Product",
+      "pk": 1,
+      "fields": {
+        "thumbnail": "item_1.jpg",
+        "name": "item_1",
+        "price": 100.0,
+        "description": "this is item 1"
+      }
+    },
+    {
+        "model": "amazon.Product",
+        "pk": 2,
+        "fields": {
+          "thumbnail": "item_2.jpg",
+          "name": "item_2",
+          "price": 200.0,
+          "description": "this is item 2"
+        }
+      },
+      {
+        "model": "amazon.Product",
+        "pk": 3,
+        "fields": {
+          "thumbnail": "item_3.jpg",
+          "name": "item_3",
+          "price": 300.0,
+          "description": "this is item 3"
+        }
+      },
+      {
+        "model": "amazon.Product",
+        "pk": 4,
+        "fields": {
+          "thumbnail": "item_4.jpg",
+          "name": "item_4",
+          "price": 200.0,
+          "description": "this is item 4"
+        }
+      },
+      {
+        "model": "amazon.Product",
+        "pk": 5,
+        "fields": {
+          "thumbnail": "item_5.jpg",
+          "name": "item_5",
+          "price": 200.0,
+          "description": "this is item 5"
+        }
+      }
+]

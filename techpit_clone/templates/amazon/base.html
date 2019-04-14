@@ -40,7 +40,7 @@
                         </a>
                         </div>
                         <div class="col-lg-6 col-sm-6">
-                            <form method= "get" action="" class="search-wrap">
+                            <form method= "get" action="{% url 'amazon:item_list' %}" class="search-wrap">
                                 <div class="input-group">
                                     <input name="q" type="text" class="form-control" placeholder="Search">
                                     <div class="input-group-append">
@@ -53,11 +53,16 @@
                         </div> <!-- col.// -->
                         <div class="col-lg-3 col-sm-6">
                             <div class="widgets-wrap d-flex justify-content-end">
-                                
                                 <div class="widget-header icontext">
                                     <div class="icon-wrap icon-sm bg2 round text-secondary"><i class="fa fa-user"></i></div>
                                     <div class="text-wrap">
-                                        <small>ようこそゲストさん</small>
+                                        {% if user.is_authenticated %}
+                                        <small>{{user.name}}さん</small>
+                                        <span><a href="{% url 'amazon:logout' %}">Logout</a></span>
+                                        {% else %}
+                                        <small>ゲスト</small>
+                                        <span><a href="{% url 'amazon:login' %}">Login</a></span>
+                                        {% endif %}
                                     </div>
                                 </div> <!-- widget  dropdown.// -->
                             </div>	<!-- widgets-wrap.// -->	
