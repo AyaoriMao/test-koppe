@@ -6,4 +6,4 @@
 本登録用URL
 {{ protocol}}://{{ domain }}{% url 'amazon:sign_up_done' token %}
 
-
+管理者
