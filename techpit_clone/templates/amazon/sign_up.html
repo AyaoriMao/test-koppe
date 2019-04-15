@@ -26,19 +26,19 @@
                             {% csrf_token %}
                             <div class="form-group input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                                    </div>
-                                    {{ form.name }}
-                            </div> <!-- form-group// -->
-                            {{ form.name.errors }}
-                            <div class="form-group input-group">
-                                <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                                     </div>
                                     {{ form.email }}
                                     
                             </div> <!-- form-group// -->
                             {{ form.email.errors }}
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                    </div>
+                                    {{ form.name }}
+                            </div> <!-- form-group// -->
+                            {{ form.name.errors }}
                             <div class="form-group input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>

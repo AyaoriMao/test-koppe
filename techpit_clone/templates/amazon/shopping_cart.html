@@ -2,9 +2,8 @@
 {% block content %}
 {% load static %}
 
-{% if object.cart_items %}
+{% if object.cart_items.all %}
  <div class="card shopping-cart">
-    
     <div class="card-body">
         {% for cart_item in object.cart_items.all %}
         <div class="row">
