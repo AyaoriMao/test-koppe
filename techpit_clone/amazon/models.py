@@ -5,7 +5,7 @@ from django.contrib.auth.models import PermissionsMixin
 from django.core.mail import send_mail
 from django.utils.translation import ugettext_lazy as _ 
 from django.utils import timezone
-from django.db.models import F, Sum
+from django.db.models import F, Sum, Avg
 
 
 class Product(models.Model):
@@ -30,7 +30,9 @@ class Product(models.Model):
     description = models.TextField(
         verbose_name = '説明'
     )
-
+    @property
+    def avg_rating(self):
+        return self.reviews.all().aggregate(avg_rating = Avg('rating'))['avg_rating'] or 0
 
 class MyUserManager(BaseUserManager):
     """ユーザーマネージャー."""

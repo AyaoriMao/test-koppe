@@ -102,6 +102,15 @@ myenv
 
 全てインストールできたらVSCodeを**再起動**してください。再起動することで拡張機能が使えるようになります。
 
+## sqlite3のダウンロード
+Djangoのプロジェクトではデフォルトでsqlite3をデータベースエンジンとして利用します。今回のプロジェクトもこのsqlite3をデータベースとして利用します。
+そのためデータベースの中身を確認するためにコマンドラインツールのインストールが必要になりますのでダウンロードします。
+[公式サイト](https://sqlite.org/download.html)のダウンロードページで、Precompiled Binaries for Windowのsqlite-tools-win32-x86-3270200.zipをダウンロードします。
+
+[![Image from Gyazo](https://i.gyazo.com/5dd2da951151fe771a15b939342ac0c2.png)](https://gyazo.com/5dd2da951151fe771a15b939342ac0c2)
+
+ダウンロードしたzipファイルを任意の場所に解凍してください。後ほど中に入っているsqlite3.exeファイルを利用します。
+
 
 ## コマンドプロンプト
 djangoのコマンドを実行するインターフェースとしてコマンドプロンプトを利用します。

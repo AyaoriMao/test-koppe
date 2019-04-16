@@ -27,6 +27,35 @@
                         <h2>{{ object.name }}</h2>
                         <span>¥{{ object.price }}</span>
                     </p>
+                    <p>
+                        <span>
+                            {% if object.avg_rating > 0 %}
+                            <span>★</i></span>
+                            {% else %}
+                            <span>☆</span>
+                            {% endif %}
+                            {% if object.avg_rating > 1 %}
+                            <span>★</i></span>
+                            {% else %}
+                            <span>☆</span>
+                            {% endif %}
+                            {% if object.avg_rating > 2 %}
+                            <span>★</i></span>
+                            {% else %}
+                            <span>☆</span>
+                            {% endif %}
+                            {% if object.avg_rating > 3 %}
+                            <span>★</i></span>
+                            {% else %}
+                            <span>☆</span>
+                            {% endif %}
+                            {% if object.avg_rating > 4 %}
+                            <span>★</i></span>
+                            {% else %}
+                            <span>☆</span>
+                            {% endif %}
+                        </span>
+                    </p>
                     <p class="lead font-weight-bold">商品説明</p>
                     <p>{{ object.description }}</p>
                     {% if user.is_authenticated %}
@@ -158,6 +187,7 @@
 </main>   
 {% endblock %}
 {% block scripts %}
+<!--  [7-6 追加]カートに追加ボタン ここから -->
 <script>
     $(function() {
         var options = {
@@ -178,7 +208,6 @@
             $rating_input.val(parseInt($(this).rate('getValue')));
         });
     });
-
-
 </script>
+<!--  [7-6 追加]カートに追加ボタン ここまで -->
 {% endblock %}
