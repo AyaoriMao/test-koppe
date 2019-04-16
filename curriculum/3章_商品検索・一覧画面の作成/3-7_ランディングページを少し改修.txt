@@ -1,0 +1,86 @@
+# ランディングページを少し改修
+前章で作成したランディングページのカルーセル部分(画像がスライドショーになっているところ)が、商品とは関係のない画像になっているため、この部分に商品画像が表示されるよう改修しましょう。
+現在ランディングページは完全な静的ファイル（コンテキストの利用無し）なので、まずはランディングページがコンテキスト(登録されている商品のリスト)を利用できるようビューを修正しましょう。
+
+techpit/amazon/views.pyに定義されているLpクラスを以下の様に修正します。
+
+修正前
+```
+class Lp(generic.TemplateView):
+    template_name = 'amazon/lp.html'
+```
+
+修正後
+```
+class Lp(generic.TemplateView):
+    template_name = 'amazon/lp.html'
+    def get_context_data(self, **kwargs):
+        context = super(Lp, self).get_context_data(**kwargs)
+        all_items = Product.objects.all()
+        context['items'] = all_items
+        return context
+```
+
+新たにget_context_data関数を定義(オーバライド)しております。この関数はテンプレートに注入するコンテキストを管理する関数であり、辞書型のオブジェクトを返すよう作成します。この部分で返されたオブジェクトに含まれる各項目がテンプレートで利用できるようになります。
+今回は、親クラスで作成したコンテキストに商品のクエリセットを追加したいので、まず親の同関数を呼び、その戻り値に新たに項目を追加しております。
+
+これでランディングページのテンプレートから`items`という名前で商品のクエリセットにアクセスできるようになったので、
+カルーセルの部分を書き換えましょう。
+
+techpit/templates/amazon/lp.htmlを修正します。
+
+修正前
+```
+～略～
+ <div class="owl-init slider-main owl-carousel" data-items="1" data-dots="false" data-nav="true">
+    <div class="item-slide">
+        <img src="{% static 'images/banners/slide1.jpg' %}">
+    </div>
+    <div class="item-slide rounded">
+        <img src="{% static 'images/banners/slide2.jpg' %}">
+    </div>
+    <div class="item-slide rounded">
+        <img src="{% static 'images/banners/slide3.jpg' %}">
+    </div>
+</div>
+～略～
+```
+
+修正後
+```
+～略～
+
+ <div class="owl-init slider-main owl-carousel" data-items="1" data-dots="false" data-nav="true">
+    {% for item in items %}
+    <div class="item-slide">
+        <img src="{{ item.thumbnail.url }}">
+    </div>
+    {% endfor %}
+</div>
+
+～略～
+```
+
+ここでは、もともとカルーセルで3枚の固定のスライドを表示するのみだったものを、実際に登録されている商品画像を表示するよう修正しております。
+
+これでランディングページを確認してみましょう。
+
+localhost:8000/techpit/amazon/lp
+[![Image from Gyazo](https://i.gyazo.com/62c1a92f88faed58400fab2cc9de8297.png)](https://gyazo.com/62c1a92f88faed58400fab2cc9de8297)
+
+実際に登録されている商品がカルーセルに表示されるようになりました。
+
+以上で今回のパートは終了です。
+
+お疲れ様でした。
+
+
+
+
+
+
+
+
+
+
+

@@ -118,7 +118,7 @@ class ShoppingCart(models.Model):
     )
     @property
     def item_count(self):
-        return self.cart_items.count
+        return self.cart_items.all().aggregate(amount = Sum('amount'))['amount']
     @property
     def total_price(self):
         return self.cart_items.all().aggregate(total=Sum(F('product__price') * F('amount')))['total']

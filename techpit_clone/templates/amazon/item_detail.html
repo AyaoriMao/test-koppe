@@ -45,8 +45,6 @@
         </div>
         <hr>
         {% if user.is_authenticated %}
-        <!-- review form -->
-
         <form action="" method="POST">
             {{ form.non_field_errors }}
             {% for field in form %}
@@ -114,10 +112,6 @@
                                 </p>
                                 <div class="clearfix"></div>
                                 <p>{{ review.comment }}</p>
-                                <!-- <p>
-                                    <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
-                                    <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
-                                </p> -->
                             </div>
                         </div>
                         
@@ -137,9 +131,14 @@
 
                 <h4 class="my-4 h4">Additional information</h4>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus suscipit modi sapiente illo soluta odit
-                voluptates,
-                quibusdam officia. Neque quibusdam quas a quis porro? Molestias illo neque eum in laborum.</p>
+                <p>
+                    Djangoのようなフレームワークを利用しても、ページのデザインを綺麗にすることはできません。
+                    恐らくこの教材で学習している方のほとんどがどちらかというとサーバサイドを勉強している方が多いのかと思慮しますので、
+                    htmlやcssの部分はあまり得意でないという方が多いと思います。そのような方はぜひBootstrap等のCSSフレームワークを利用することをお勧めします。
+                    また、コードのスニペットをネット上から拝借するのも非常に良いと思います。日本の
+                    サイトですとまだこのスニペットのまとめサイトのようなものは少ないですが、海外ですと無数に存在するので、ぜひそれらを活用していただくことをお勧めします。(無料で公開されていることろが多いです)
+                    特にログイン画面やサインアップ部分は「bootstrap login snippet」等で検索するといろいろな方が作成したスニペットが出てくるので、是非今後「自分でサービス開発したい！」となった際にご参考にしていただければと思います。
+                </p>
             </div>
         </div>
         <div class="row wow fadeIn">
@@ -169,9 +168,6 @@
             cursor: 'default',
             readonly: false,
             change_once: false, // Determines if the rating can only be set once
-            // ajax_method: 'POST',
-            // url: 'http://localhost/test.php',
-            // additional_data: {} // Additional data to send to the server
         }
 
         var $rating = $(".rating");

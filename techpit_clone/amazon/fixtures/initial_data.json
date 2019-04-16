@@ -3,50 +3,80 @@
       "model": "amazon.Product",
       "pk": 1,
       "fields": {
-        "thumbnail": "item_1.jpg",
-        "name": "item_1",
-        "price": 100.0,
-        "description": "this is item 1"
+        "thumbnail": "1.jpg",
+        "name": "アイロン",
+        "price": 10000.0,
+        "description": "非常に使いやすいアイロンです。"
       }
     },
     {
         "model": "amazon.Product",
         "pk": 2,
         "fields": {
-          "thumbnail": "item_2.jpg",
-          "name": "item_2",
+          "thumbnail": "2.jpg",
+          "name": "ブレンダー",
           "price": 200.0,
-          "description": "this is item 2"
+          "description": "様々なものをブレンドできます。"
         }
       },
       {
         "model": "amazon.Product",
         "pk": 3,
         "fields": {
-          "thumbnail": "item_3.jpg",
-          "name": "item_3",
-          "price": 300.0,
-          "description": "this is item 3"
+          "thumbnail": "3.jpg",
+          "name": "バッグ",
+          "price": 30000.0,
+          "description": "おしゃれなバッグです。"
         }
       },
       {
         "model": "amazon.Product",
         "pk": 4,
         "fields": {
-          "thumbnail": "item_4.jpg",
-          "name": "item_4",
-          "price": 200.0,
-          "description": "this is item 4"
+          "thumbnail": "4.jpg",
+          "name": "スマートフォン",
+          "price": 20000.0,
+          "description": "使いやすいスマートフォンです。"
         }
       },
       {
         "model": "amazon.Product",
         "pk": 5,
         "fields": {
-          "thumbnail": "item_5.jpg",
-          "name": "item_5",
-          "price": 200.0,
-          "description": "this is item 5"
+          "thumbnail": "5.jpg",
+          "name": "ソファ",
+          "price": 2600000.0,
+          "description": "上質な素材を使ったソファです。"
+        }
+      },
+      {
+        "model": "amazon.Product",
+        "pk": 6,
+        "fields": {
+          "thumbnail": "6.jpg",
+          "name": "チェア",
+          "price": 260000.0,
+          "description": "上質な素材を使ったチェアです。"
+        }
+      },
+      {
+        "model": "amazon.Product",
+        "pk": 7,
+        "fields": {
+          "thumbnail": "7.jpg",
+          "name": "腕時計",
+          "price": 76000.0,
+          "description": "おしゃれな腕時計です。"
+        }
+      },
+      {
+        "model": "amazon.Product",
+        "pk": 8,
+        "fields": {
+          "thumbnail": "8.jpg",
+          "name": "ディスプレイ",
+          "price": 6000.0,
+          "description": "リーズナブルなディスプレイです。"
         }
       }
 ]
