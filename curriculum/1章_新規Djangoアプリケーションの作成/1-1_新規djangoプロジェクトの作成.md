@@ -3,13 +3,13 @@
 ## Djangoのインストール
 この教材の主役であるDjangoをインストールしましょう。
 ではまず先ほど作成したmyenv環境に入りましょう。
-```
+```shell
 $ source myenv/bin/activate
 (myenv)$ 
 ```
 
 環境に入ったらpipコマンドでdjangoをインストールします。
-```
+```shell
 (myenv)$ pip install django
 (myenv)$ ・・・
 ・・・・・・・・
@@ -20,7 +20,7 @@ successfully installed ・・・
 このように、他の環境を汚さないで必要なパッケージをインストールでいるということも仮想環境を利用するメリットになります。
 
 続けて後に必要となるPillowもインストールしておきます。
-```
+```shell
 (myenv)$ pip install Pillow
 (myenv)$ ・・・
 ・・・・・・・・
@@ -33,7 +33,7 @@ djangoプロジェクトって何？と思う方、多いと思います。djang
 djangoでは、プロジェクトの雛形を自動生成するコマンドを用意してくれているのでそれを利用します。では仮想環境に入った状態で以下のコマンドを打ちましょう。
 ここでは新しく"techpit"というプロジェクトを作成します。
 
-```
+```shell
 (myenv)$ django-admin startproject techpit
 (myenv)$ ls
 techpit myenv
@@ -56,14 +56,16 @@ techpit/
 * urls.py : リクエストのルーティングを定義します
 
 次に、プロジェクトフォルダに入り、以下のコマンドでdjango同梱の開発用サーバを立ち上げてみましょう。
-```
+```shell
 (myenv)$ cd techpit
 (myenv)$ python manage.py runserver
 ・・・
 Starting development server at http://127.0.0.1:8000/
 ```
 上記のようになっていれば成功です。
-記載されているURLにアクセスしてみましょう。
+You have 17 unapplied migration(s)...というエラーメッセージが出ていると思いますが、現時点では無視して大丈夫ですので、ご安心ください。
+
+では、記載されているURLにアクセスしてみましょう。
 
 [![Image from Gyazo](https://i.gyazo.com/145c3e4db239bc2ce39dbacd70694e7b.png)](https://gyazo.com/145c3e4db239bc2ce39dbacd70694e7b)
 
