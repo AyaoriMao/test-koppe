@@ -10,7 +10,7 @@
         * プロジェクトのルートフォルダからアプリフォルダのパス(今回でいうと"amazon"にあたります)を指定する
     
 
-    ``` 
+    ``` py
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -21,7 +21,7 @@
 
     では実際にamazonアプリをこのプロジェクトに追加しましょう。今回はConfigファイルを指定する方法を採用します。
     ではこの項目を以下のように修正します。
-    ``` 
+    ```py
     INSTALLED_APPS = [
         'django.contrib.admin',
         'django.contrib.auth',
@@ -46,7 +46,7 @@
         └ wsgi.py
     ```
     フォルダを作成したら設定を当項目のDIRS部分を修正しましょう。
-    ```
+    ```py
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -89,10 +89,10 @@ techpit/
     └ wsgi.py
 ```
 
-    ```
-    MEDIA_ROOT = os.path.join(BASE_DIR,'media') # 追加
-    MEDIA_URL = '/media_techpit/' # 追加  
-    ```
+```py
+MEDIA_ROOT = os.path.join(BASE_DIR,'media') # 追加
+MEDIA_URL = '/media_techpit/' # 追加  
+```
 
 * STATIC_ROOT
     * こちらは本番環境(django開発サーバではなく、apache, gunicorn等)のWebサーバに静的ファイルを管理させる場合に設定が必要になります。開発用サーバを用いて動かしている段階では、djangoが勝手に各アプリフォルダ直下のstaticフォルダを自動で探してくれるため、意識する必要はないのですが、先述のWebサーバにそれらの静的ファイルを管理させる場合、それらのファイルを一箇所に集めることが必要になり、その”どこに集めるのか”を決めるのがこの設定値になります。具体的には、python manage.py collectstatic　コマンドを打った際に各アプリの静的ファイルを集約する先を指定します。
@@ -125,7 +125,7 @@ techpit/
     ├ urls.py
     └ wsgi.py
 ```
-```
+```py
 STATIC_ROOT = os.path.join(BASE_DIR,'static') # 追加
 STATIC_URL = '/static/' # そのまま
 ```
