@@ -5,13 +5,13 @@
 techpit/amazon/views.pyに定義されているLpクラスを以下の様に修正します。
 
 修正前
-```
+```py
 class Lp(generic.TemplateView):
     template_name = 'amazon/lp.html'
 ```
 
 修正後
-```
+```py
 class Lp(generic.TemplateView):
     template_name = 'amazon/lp.html'
     def get_context_data(self, **kwargs):
@@ -29,36 +29,94 @@ class Lp(generic.TemplateView):
 
 techpit/templates/amazon/lp.htmlを修正します。
 
-修正前
-```
-～略～
- <div class="owl-init slider-main owl-carousel" data-items="1" data-dots="false" data-nav="true">
-    <div class="item-slide">
-        <img src="{% static 'images/banners/slide1.jpg' %}">
-    </div>
-    <div class="item-slide rounded">
-        <img src="{% static 'images/banners/slide2.jpg' %}">
-    </div>
-    <div class="item-slide rounded">
-        <img src="{% static 'images/banners/slide3.jpg' %}">
-    </div>
-</div>
-～略～
-```
+```html
+<!-- [2-5 追加] ベーステンプレート読み込み1　ここから -->
+{% extends "amazon/base.html" %}
+{% block content %}
+{% load static %}
+<!-- [2-5 追加] ベーステンプレート読み込み1　ここまで -->
 
-修正後
-```
-～略～
+<!-- [2-5 追加] ベーステンプレート読み込み3　ここから -->
+    <link href="{% static 'plugins/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/owlcarousel/assets/owl.theme.default.css' %}" rel="stylesheet">
+    <script src="{% static 'plugins/owlcarousel/owl.carousel.min.js' %}"></script>
+  
+    <section class="section-main bg padding-top-sm">
+        <div class="container">
+            <div class="row-sm">
+                <div class="col-md-8">
+                    <!-- [3-7 修正] 実際の商品をカルーセルに表示 ここから -->
+                    <div class="owl-init slider-main owl-carousel" data-items="1" data-dots="false" data-nav="true">
+                        {% for item in items %}
+                        <div class="item-slide">
+                            <img src="{{ item.thumbnail.url }}">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- [3-7 修正] 実際の商品をカルーセルに表示 ここまで -->
+                </div> <!-- col.// -->
+                <aside class="col-md-4">
+                    <div class="card mb-3">
+                        <figure class="itemside">
+                            <div class="aside"><div class="img-wrap p-2 border-right"><img class="img-sm" src="{% static 'images/items/1.jpg' %}"></div></div>
+                            <figcaption class="text-wrap align-self-center">
+                                <h6 class="title">Group of products is here </h6>
+                                <a href="#">More items</a>
+                            </figcaption>
+                        </figure>
+                    </div> <!-- card.// -->
+                    <div class="card mb-3">
+                        <figure class="itemside">
+                            <div class="aside"><div class="img-wrap p-2 border-right"><img class="img-sm" src="{% static 'images/items/2.jpg' %}"></div></div>
+                            <figcaption class="text-wrap align-self-center">
+                                <h6 class="title">Group of products  is here </h6>
+                                <a href="#">More items</a>
+                            </figcaption>
+                        </figure>
+                    </div> <!-- card.// -->
+                    
+                    <div class="card">
+                        <figure class="itemside">
+                            <div class="aside"><div class="img-wrap p-2 border-right"><img class="img-sm" src="{% static 'images/items/3.jpg' %}"></div></div>
+                            <figcaption class="text-wrap align-self-center">
+                                <h6 class="title">Group of products is here </h6>
+                                <a href="#">More items</a>
+                            </figcaption>
+                        </figure>
+                    </div> <!-- card.// -->
+                </aside>
+            </div>
+        </div> <!-- container .//  -->
+    </section>
+    <section class="section-content padding-y bg">
+        <div class="container">
+        
+            <div class="card">
+                <div class="card-body">
+            
+                    <header class="section-heading">
+                        <h3 class="title-section">Django Amazon</h3>
+                    </header>
+                    
+                    <article>
+                        <p>
+                            この教材ではDjangoを用いてAmazonに代表されるECサイトを作成します。Djangoが提供する多くの機能の中でも、主にCBV（クラスベースビュー）を
+                            積極的に用いて、書くコードの量をなるべく減らすような設計にしております。Djangoを利用すると言っても同じ機能を実現させるさせるために様々な手段がありますので、
+                            この教材が紹介しているやり方が正解だとは思わず、選択肢の一つとして受け入れていただければと思います。
+                            人のやり方やコードをうまく取り入れる（パクる）ことが、実務をこなせるレベルになる最短ルートだと私は考えておりますので、
+                            是非ここで学んだ実装方法を積極的に活用いただけると嬉しいです。
+                        </p> 
+                    </article>
+                </div>
+            </div>
+        
+        </div> <!-- container .//  -->
+    </section>
+<!-- [2-5 追加] ベーステンプレート読み込み3　ここまで -->
 
- <div class="owl-init slider-main owl-carousel" data-items="1" data-dots="false" data-nav="true">
-    {% for item in items %}
-    <div class="item-slide">
-        <img src="{{ item.thumbnail.url }}">
-    </div>
-    {% endfor %}
-</div>
-
-～略～
+<!-- [2-5 追加] ベーステンプレート読み込み2　ここから -->
+{% endblock %}
+<!-- [2-5 追加] ベーステンプレート読み込み2　ここまで -->
 ```
 
 ここでは、もともとカルーセルで3枚の固定のスライドを表示するのみだったものを、実際に登録されている商品画像を表示するよう修正しております。
@@ -66,7 +124,7 @@ techpit/templates/amazon/lp.htmlを修正します。
 これでランディングページを確認してみましょう。
 
 localhost:8000/techpit/amazon/lp
-[![Image from Gyazo](https://i.gyazo.com/62c1a92f88faed58400fab2cc9de8297.png)](https://gyazo.com/62c1a92f88faed58400fab2cc9de8297)
+[![Image from Gyazo](https://i.gyazo.com/4498b9e1895f061b444187857d1cf05d.png)](https://gyazo.com/4498b9e1895f061b444187857d1cf05d)
 
 実際に登録されている商品がカルーセルに表示されるようになりました。
 

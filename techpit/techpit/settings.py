@@ -43,8 +43,6 @@ INSTALLED_APPS = [
 LANGUAGE_CODE = 'ja'
 TIME_ZONE = 'Asia/Tokyo'
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'media') # 追加
-MEDIA_URL = '/media_techpit/' # 追加
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,3 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static') # 追加
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media') # 追加
+MEDIA_URL = '/media_techpit/' # 追加
+

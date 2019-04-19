@@ -30,7 +30,9 @@
                         </a>
                         </div>
                         <div class="col-lg-6 col-sm-6">
-                            <form method= "get" action="" class="search-wrap">
+                            <!-- [3-6 修正] フォームのaction属性変更 ここから -->
+                            <form method= "get" action="{% url 'amazon:item_list' %}" class="search-wrap">
+                            <!-- [3-6 修正] フォームのaction属性変更 ここまで -->
                                 <div class="input-group">
                                     <input name="q" type="text" class="form-control" placeholder="Search">
                                     <div class="input-group-append">
