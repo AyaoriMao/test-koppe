@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from .models import * # 追加
+from .models import *
+from django.contrib.auth.views import LoginView
+from .forms import * 
 
 # djangoの汎用クラスビューのパッケージをインポート
 from django.views import generic
@@ -23,3 +26,12 @@ class ItemList(generic.ListView):
             products = products.filter(name__icontains = q)
 
         return products
+
+class ItemDetail(generic.DetailView):
+    model = Product
+    template_name = 'amazon/item_detail.html'
+
+class Login(LoginView):
+    """ログインページ"""
+    form_class = LoginForm
+    template_name = 'amazon/login.html'
