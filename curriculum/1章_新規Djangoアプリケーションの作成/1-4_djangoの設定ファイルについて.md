@@ -111,20 +111,6 @@ MEDIA_URL = '/media_techpit/' # 追加
 
 この場合、設定値は以下のようになります。
 
-```
-techpit/
-　 ├ amazon/
-　   ├ static/ # 新規作成
-　 ├ manage.py
-　 ├ templates/ 
-　 ├ media 
-　 └ techpit/
-    ├ __init__.py
-    ├ __pycache__/
-    ├ settings.py
-    ├ urls.py
-    └ wsgi.py
-```
 ```py
 STATIC_ROOT = os.path.join(BASE_DIR,'static') # 追加
 STATIC_URL = '/static/' # そのまま

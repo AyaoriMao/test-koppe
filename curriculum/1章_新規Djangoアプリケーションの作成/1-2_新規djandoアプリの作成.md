@@ -4,10 +4,9 @@
 プロジェクトの作成が完了したので、次にdjangoアプリを作成していきましょう。
 ここではmanage.pyが提供するアプリの雛形作成コマンドを利用します。
 今回は”amazon”というアプリを"techpit"プロジェクトに追加しましょう。
+(前章からフォルダ移動をしている場合はmanage.pyのフォルダまで戻りましょう。)
 
-まずプロジェクトフォルダに入り、
 ```shell
-(myenv)$ cd techpit
 (myenv)$ python manage.py startapp amazon
 (myenv)$ ls
 amazon db.sqlite3 manage.py techpit
