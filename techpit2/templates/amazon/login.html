@@ -35,7 +35,10 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <button type="submit" name="btn" value="Login" class="btn btn-primary btn-block">Login</button>
-                            </div>                                                               
+                            </div>
+                            <!-- [6-6 追加] サインアップ画面へのリンク ここから -->
+                            <p class="text-center">アカウントをお持ち出ないですか? <a href="{% url 'amazon:sign_up' %}">Sign up</a> </p>
+                            <!-- [6-6 追加] サインアップ画面へのリンク ここまで -->
                         </form>
                     </div> <!-- card body -->
                 </div> <!-- card  -->
@@ -43,4 +46,3 @@
         </div>
     </div>
 </body>
-</html>
