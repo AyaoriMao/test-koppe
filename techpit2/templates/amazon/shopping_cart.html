@@ -1,28 +1,3 @@
-# テンプレートの作成
-
-## ショッピングカート画面テンプレートの作成
-ではまずテンプレートフォルダに新たなテンプレート"shopping_cart.html"を作成します。
-```
-techpit/
-　 ├ amazon/
-　 ├ static/
-　 ├ manage.py
-　 ├ templates/ 
- 　　└ amazon/
-    　 ├ base.py
-　     ├ lp.py
-　　　　├ item_list.html
-　　　　├ item_detail.html
-　　　　├ login.html
-　　　　├ sign_up.html
-　　　　├ sign_up_done.html
-　　　　└ shopping_cart.html ← 新規作成
-
-
-```
-
-shopping_cart.htmlに以下のように記述します。
-```
 {% extends "amazon/base.html" %}
 {% block content %}
 {% load static %}
@@ -71,15 +46,65 @@ shopping_cart.htmlに以下のように記述します。
 {% endif %}
 
 {% endblock %}
-```
 
-今回はベーステンプレートの子テンプレートとして、contentブロックを実装しております。今回新しい文法は出てきていないですが、内容を解説していきます。
+{% block scripts %}
+<!-- [7-5] Ajaxリクエスト部分追加 ここから -->
+<script>
+    function call_update_amount(_pk, _amount) {
+        return $.ajax({
+            url: '{% url "amazon:update_cart_item_amount" %}',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                cart_item_pk: _pk,
+                amount: _amount
+            }
+        });
+    }
+    function call_delete_item(_pk) {
+        return $.ajax({
+            url: '{% url "amazon:delete_cart_item" %}',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                cart_item_pk: _pk
+            }
+        });
+    }
 
-* `{% if object.cart_items.all %}・・・{% elseif %}カートが空です{% endif %}`
-  * コンテキストのobject変数のcart_itemsがセットされていない場合はカートが空ですのメッセージを表示します。
-
-
-以上で今回のパートは終了です。
-
-お疲れ様でした。
-
+    $(function() {
+        var $input_amount = $('input[name="amount"]');
+        var $delete_button = $('button[name="delete"]');
+        $input_amount.on('change', function() {
+            var cart_item_pk = $(this).attr('pk');
+            var new_amount = parseInt($(this).val());
+            call_update_amount(cart_item_pk, new_amount)
+            .done((data) => {
+                if (data.success) {
+                    location.reload();
+                    return;
+                }
+                alert(data.error);
+            })
+            .fail((ata, textStatus, xhr) => {
+                alert(xhr);
+            });
+        });
+        $delete_button.on('click', function() {
+            var cart_item_pk = $(this).attr('pk');
+            call_delete_item(cart_item_pk)
+            .done((data) => {
+                if (data.success) {
+                    location.reload();
+                    return;
+                }
+                alert(data.error);
+            })
+            .fail((ata, textStatus, xhr) => {
+                alert(xhr);
+            });
+        });
+    })
+</script>
+<!-- [7-5] Ajaxリクエスト部分追加 ここまで -->
+{% endblock %}

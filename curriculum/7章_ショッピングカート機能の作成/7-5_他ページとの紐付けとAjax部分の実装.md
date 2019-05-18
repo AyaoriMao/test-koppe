@@ -15,8 +15,8 @@ techpit/
 　　　　・・・
 ```
 
-修正後
-```
+base.htmlへショッピングカート画面へのリンクを追加します。
+```html
 {% load static %}
 <!doctype html>
 <html lang="ja">
@@ -59,7 +59,7 @@ techpit/
                         </div> <!-- col.// -->
                         <div class="col-lg-3 col-sm-6">
                             <div class="widgets-wrap d-flex justify-content-end">
-                                <!-- [7-6 追加] リンク追加 ここから -->
+                                <!-- [7-5 追加] リンク追加 ここから -->
                                 {% if user.is_authenticated %}
                                 <div class="widget-header icontext">
                                     <a href="{% url 'amazon:cart' user.cart.pk %}" class="icontext">
@@ -71,7 +71,7 @@ techpit/
                                     </a>
                                 </div> <!-- widget .// -->
                                 {% endif %}
-                                <!-- [7-6 追加] リンク追加 ここまで -->
+                                <!-- [7-5 追加] リンク追加 ここまで -->
                                 <!-- [5-6 追加/修正] ログイン状態による分岐 ここから -->
                                 <div class="widget-header icontext">
                                     <div class="icon-wrap icon-sm bg2 round text-secondary"><i class="fa fa-user"></i></div>
@@ -116,9 +116,9 @@ techpit/
 
 ここではログイン画面へのリンクを追加した時と同様に、ショッピングカート画面へのリンクをベーステンプレートのヘッダ部分に表示しております。またショッピングカート画面はログイン必須ですので、`if is_authenticated` でログイン時のみ表示しております。
 
-一点、新項目がありますので解説します。
-* `{{ user.cart.item_count |default_if_none:"0" }}`
-    * このdefault_if_noneは組み込みフィルタと呼ばれる、コンテキストオブジェクトに対して簡単な処理(ある数を足したり引いたり、Noneの場合のデフォルト値を設定したり)を被せることができます。今回は、ショッピングカートモデルで定義したitem_countプロパティ(商品数を取得するプロパティ)がNoneを返す可能性があるため、Noneの場合は"0"を表示するようにしております。
+新たに出てきた構文を解説します。
+* `{{ xxx|default_if_none:yyy }}`
+    * xxxがNoneである場合はyyyと表示するという記法です。このようにコンテキストに対して"|"を挟んで処理を被せる機能をフィルタと呼び、今回のdefaut_if_noneはデフォルトで用意されているフィルタのうちの一つになります。
 
 
 ## ショッピングカートへ追加する機能
@@ -136,8 +136,8 @@ techpit/
 　　　　・・・
 ```
 
-修正後
-```
+item_detail.htmlに”カートに追加ボタン”を追加します。
+```html
 {% extends "amazon/base.html" %}
 {% block content %}
 {% load static %}
@@ -169,7 +169,7 @@ techpit/
                     <p class="lead font-weight-bold">商品説明</p>
                     <p>{{ object.description }}</p>
                     
-                    <!--  [7-6 追加]カートに追加ボタン ここから -->
+                    <!--  [7-5 追加]カートに追加ボタン ここから -->
                     {% if user.is_authenticated %}
                     <form method="post" action="{% url 'amazon:cart' user.cart.pk %}" class="d-flex justify-content-left">
                         {% csrf_token %}
@@ -181,7 +181,7 @@ techpit/
                         </button>
                     </form>
                     {% endif %}
-                     <!--  [7-6 追加]カートに追加ボタン ここまで -->
+                     <!--  [7-5 追加]カートに追加ボタン ここまで -->
                 </div>
             </div>
         </div>
@@ -215,38 +215,14 @@ techpit/
     </div>
 </main>   
 {% endblock %}
-{% block scripts %}
-<!--  [7-6 追加]raterフレームワーク導入 ここから -->
-<script>
-    $(function() {
-        var options = {
-            max_value: 5,
-            step_size: 1,
-            initial_value: 0,
-            selected_symbol_type: 'utf8_star', // Must be a key from symbols
-            cursor: 'default',
-            readonly: false,
-            change_once: false, // Determines if the rating can only be set once
-        }
 
-        var $rating = $(".rating");
-        var $rating_input = $('#id_rating');
-
-        $rating.rate(options);
-        $rating.on('change', function() {
-            $rating_input.val(parseInt($(this).rate('getValue')));
-        });
-    });
-</script>
-<!--  [7-6 追加]raterフレームワーク導入 ここまで -->
-{% endblock %}
 ```
 
 ## Ajax部分の実装
 まず、サーバとの通信に必要なCSRFトークンをAjax通信の際にも利用できるよう記述する必要があるので、ベーステンプレート(techpit/templates/amazon/base.html)のJavascript部分を以下のように修正します。
 
-修正後
-```
+base.htmlへAjax時のcsrfトークン対策追加
+```html
 {% load static %}
 <!doctype html>
 <html lang="ja">
@@ -289,6 +265,7 @@ techpit/
                         </div> <!-- col.// -->
                         <div class="col-lg-3 col-sm-6">
                             <div class="widgets-wrap d-flex justify-content-end">
+                                <!-- [7-5] ショッピングカート画面へのリンク追加 ここから -->
                                 {% if user.is_authenticated %}
                                 <div class="widget-header icontext">
                                     <a href="{% url 'amazon:cart' user.cart.pk %}" class="icontext">
@@ -300,6 +277,8 @@ techpit/
                                     </a>
                                 </div> <!-- widget .// -->
                                 {% endif %}
+                                <!-- [7-5] ショッピングカート画面へのリンク追加 ここまで -->
+                                <!-- [5-6] ログイン状態による分岐追加 ここから -->
                                 <div class="widget-header icontext">
                                     <div class="icon-wrap icon-sm bg2 round text-secondary"><i class="fa fa-user"></i></div>
                                     <div class="text-wrap">
@@ -312,6 +291,8 @@ techpit/
                                         {% endif %}
                                     </div>
                                 </div> <!-- widget  dropdown.// -->
+                                <!-- [5-6] ログイン状態による分岐追加 ここまで -->
+                                
                             </div>	<!-- widgets-wrap.// -->	
                         </div> <!-- col.// -->
                     </div> <!-- row.// -->
@@ -334,7 +315,7 @@ techpit/
                 </section> <!-- //footer-top -->
             </div><!-- //container -->
         </footer>
-        <!-- [7-6 追加] Ajax csrf対策 ここから -->
+        <!-- [7-5] Ajax csrf対策追加 ここから -->
         <script type="text/javascript">
             function getCookie(name) {
                var cookieValue = null;
@@ -367,7 +348,7 @@ techpit/
                }
            });   
        </script>
-       <!-- [7-6 追加] Ajax csrf対策 ここまで -->
+       <!-- [7-5] Ajax csrf対策追加 ここまで -->
          {% block scripts %}{% endblock %}
     </body>
 </html>
@@ -377,8 +358,8 @@ techpit/
 引き続き、数量変更のAjax通信部分を実装していきます。
 ショッピングカート画面のテンプレート(techpit/templates/amazon/shopping_cart.html)を修正します。
 
-修正後
-```
+shopping_cart.htmlのAjax部分を実装します。
+```html
 {% extends "amazon/base.html" %}
 {% block content %}
 {% load static %}
@@ -425,10 +406,10 @@ techpit/
 {% else %}
 <p>カートが空です</p>
 {% endif %}
-
 {% endblock %}
+
+<!-- [7-5] Ajaxリクエスト部分追加 ここから -->
 {% block scripts %}
-<!-- [7-6 追加] Ajaxリクエスト部分 ここから -->
 <script>
     function call_update_amount(_pk, _amount) {
         return $.ajax({
@@ -486,8 +467,9 @@ techpit/
         });
     })
 </script>
-<!-- [7-6 追加] Ajaxリクエスト部分 ここから -->
 {% endblock %}
+<!-- [7-5] Ajaxリクエスト部分追加 ここまで -->
+
 ```
 
 上記は、数量変更および削除ビューと通信するAjax処理になります。
@@ -513,11 +495,11 @@ localhost:8000/techpit/amazon/lp
 ショッピングカート画面へ遷移し、カートが空ですのメッセージが出てきます。
 [![Image from Gyazo](https://i.gyazo.com/139c0bc941a32bfbef19454603ec7066.png)](https://gyazo.com/139c0bc941a32bfbef19454603ec7066)
 
-それでは次にサーチバーに"_1"と入力し、商品を検索します。
-[![Image from Gyazo](https://i.gyazo.com/dd8060072e81b652c84728adc0703cf1.png)](https://gyazo.com/dd8060072e81b652c84728adc0703cf1)
+それでは次にサーチバーに"アイロン"と入力し、商品を検索します。
+[![Image from Gyazo](https://i.gyazo.com/f934865c36a54970c1001a9057c67c29.png)](https://gyazo.com/f934865c36a54970c1001a9057c67c29)
 
 検索された商品のリンクをクリックし、詳細画面へ遷移します。
-[![Image from Gyazo](https://i.gyazo.com/1cb4360ef83a7b68ba6425cf0b678017.png)](https://gyazo.com/1cb4360ef83a7b68ba6425cf0b678017)
+[![Image from Gyazo](https://i.gyazo.com/43c4553dc260c0d74eeb107a85920928.png)](https://gyazo.com/43c4553dc260c0d74eeb107a85920928)
 
 ショッピングカートに追加するボタンが表示されているのでクリックします。
 [![Image from Gyazo](https://i.gyazo.com/97fee05ec5b0db7ee298abac6e818574.png)](https://gyazo.com/97fee05ec5b0db7ee298abac6e818574)
