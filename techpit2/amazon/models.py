@@ -5,7 +5,9 @@ from django.contrib.auth.models import PermissionsMixin
 from django.core.mail import send_mail
 from django.utils.translation import ugettext_lazy as _ 
 from django.utils import timezone
-from django.db.models import F, Sum 
+
+from django.db.models import F, Sum, Avg
+
 
 class Product(models.Model):
     class Meta:
@@ -29,6 +31,12 @@ class Product(models.Model):
     description = models.TextField(
         verbose_name = '説明'
     )
+    
+    @property
+    def avg_rating(self):
+        return self.reviews.all().aggregate(avg_rating = Avg('rating'))['avg_rating'] or 0
+
+
 class MyUserManager(BaseUserManager):
     """ユーザーマネージャー."""
 
@@ -136,4 +144,32 @@ class ShoppingCartItem(models.Model):
     )
     amount = models.IntegerField(
         verbose_name = '数量'
+    )
+
+class Review(models.Model):
+    user = models.ForeignKey(
+        User,
+        verbose_name = 'ユーザ',
+        on_delete = models.CASCADE
+    )
+    product = models.ForeignKey(
+        Product,
+        related_name = 'reviews',
+        verbose_name = '商品',
+        on_delete = models.CASCADE
+    )
+    rating = models.IntegerField(
+        verbose_name = '評価',
+        default = 0
+    )
+    title = models.CharField(
+        verbose_name = 'タイトル',
+        null = False,
+        blank = False,
+        max_length = 255
+    )
+    comment = models.TextField(
+        verbose_name = 'コメント',
+        blank = True,
+        null = True
     )

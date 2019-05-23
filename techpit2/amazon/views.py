@@ -17,6 +17,8 @@ from django.contrib import messages #[6-4]追加
 from django.conf import settings # [6-4]追加
 
 from django.contrib.auth.mixins import LoginRequiredMixin # [7-3]追加
+from django.views.generic.edit import ModelFormMixin 
+
 
 # TemplateViewを継承したクラスを作成
 class Lp(generic.TemplateView):
@@ -38,10 +40,28 @@ class ItemList(generic.ListView):
 
         return products
 
-class ItemDetail(generic.DetailView):
+
+class ItemDetail(ModelFormMixin, generic.DetailView):
     model = Product
+    form_class = ReviewForm
     template_name = 'amazon/item_detail.html'
 
+    # create review if valid
+    def form_valid(self, form):
+        review = form.save(commit=False)
+        review.product = self.get_object()
+        review.user = self.request.user
+        review.save()
+        return HttpResponseRedirect(self.request.path_info)
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            self.object = self.get_object()
+            return self.form_invalid(form)
+            
 class Login(LoginView):
     """ログインページ"""
     form_class = LoginForm
