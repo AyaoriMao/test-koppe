@@ -1,0 +1,3 @@
+[submodule "curriculum-textlint"]
+	path = curriculum-textlint
+	url = git@github.com:Techpit-Market/curriculum-textlint.git
